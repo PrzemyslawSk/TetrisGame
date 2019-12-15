@@ -20,43 +20,37 @@ namespace TetrisGame
             CreateBlock(1);
         }
 
-        void CreateBlock(int blockNumber)
+        public static BaseBlocks CreateBlock(int blockNumber)
         {
             if (blockNumber == 0)
             {
-                Z_Block z_Block = new Z_Block();
-                z_Block.Render(mainWindow.PlayBoard);
+                return new Z_Block();
             }
             else if(blockNumber == 1)
             {
-                S_Block s_Block = new S_Block();
-                s_Block.Render(mainWindow.PlayBoard);
+                return new S_Block();
             }
             else if (blockNumber == 2)
             {
-                LeftL_Block leftL_Block = new LeftL_Block();
-                leftL_Block.Render(mainWindow.PlayBoard);
+                return new LeftL_Block();
             }
             else if (blockNumber == 3)
             {
-                L_Block l_Block = new L_Block();
-                l_Block.Render(mainWindow.PlayBoard);
+                return new L_Block();
             }
             else if (blockNumber == 4)
             {
-                Square_Block square_Block = new Square_Block();
-                square_Block.Render(mainWindow.PlayBoard);
+                return new Square_Block();
             }
             else if (blockNumber == 5)
             {
-                T_Block t_Block = new T_Block();
-                t_Block.Render(mainWindow.PlayBoard);
+                return new T_Block();
             }
             else if (blockNumber == 6)
             {
-                I_Block i_Block = new I_Block();
-                i_Block.Render(mainWindow.PlayBoard);
+                return new I_Block();
             }
+            return null;
         }
 
     }

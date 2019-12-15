@@ -29,20 +29,20 @@ namespace TetrisGame.Block
                 BlockeHelper.InsertBlock(grid, rectangle, coord[0], coord[1], 1, 1);
             }
         }
-        //private void OnKeyDownHandler(object sender, KeyEventArgs e)
-        //{
-        //    if (e.Key == Key.Down)
-        //    {
-        //        coordinates[0][1] += 1;
-        //    }
-        //}
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Down)
+            {
+                coordinates[0][1] += 1;
+            }
+        }
 
-        public override void Rotate(RotateDirection rotateDirection)
+        public void Rotate(RotateDirection rotateDirection)
         {
             switch (rotateDirection)
             {
                 case RotateDirection.Left:
-                    if(!isHorizontal)
+                    if (!isHorizontal)
                     {
                         //coordinates.Add(new int[] { 5, 0 });
                         //coordinates.Add(new int[] { 5, 1 });
@@ -61,7 +61,7 @@ namespace TetrisGame.Block
                     else
                     {
                         var x = coordinates[0][0] += 1;
-                        coordinates[0][1] -= 1 ; //1  { 5, 0 }
+                        coordinates[0][1] -= 1; //1  { 5, 0 }
                         coordinates[1][0] -= x;
                         coordinates[1][1] -= 0; //2  { 5, 1 }
                         coordinates[2][0] -= x;
@@ -75,6 +75,15 @@ namespace TetrisGame.Block
                 case RotateDirection.Right:
                     break;
             }
+        }
+        public List<int[]> GetFallPosition()
+        {
+            var cords = new List<int[]>(coordinates);
+            cords[0][1] += 1;
+            cords[1][1] += 1;
+            cords[2][1] += 1;
+            cords[3][1] += 1;
+            return cords;
         }
     }
 }

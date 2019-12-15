@@ -19,6 +19,6 @@ namespace TetrisGame.Block
 
         public abstract void Render(Grid grid);
 
-        public abstract void Rotate(RotateDirection rotateDirection);
+        //public abstract void Rotate(RotateDirection rotateDirection);
     }
 }

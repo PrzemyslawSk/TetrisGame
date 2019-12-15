@@ -64,6 +64,7 @@
     <Compile Include="Block\S_Block.cs" />
     <Compile Include="Block\T_Block.cs" />
     <Compile Include="Block\Z_Block.cs" />
+    <Compile Include="GameLogic.cs" />
     <Compile Include="Keys.cs" />
     <Compile Include="TetrisBlock.cs" />
     <Page Include="MainMenuWindow.xaml">

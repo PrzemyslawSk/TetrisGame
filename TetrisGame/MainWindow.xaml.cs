@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace TetrisGame
 {
@@ -20,13 +21,22 @@ namespace TetrisGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        GameLogic gameLogic;
         public MainWindow()
         {
             Left = 500;
             Top = 100;
             InitializeComponent();
-
-            TetrisBlock tetrisBlock = new TetrisBlock(this);
+            gameLogic = new GameLogic(PlayBoard);
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(GameLogicIteration);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+            //TetrisBlock tetrisBlock = new TetrisBlock(this);
+        }
+        void GameLogicIteration(object sender, EventArgs e)
+        {
+            gameLogic.Iterate();
         }
     }
 }
